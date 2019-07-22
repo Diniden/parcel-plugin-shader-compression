@@ -10,27 +10,57 @@ and multiline comments to determine text that should be removed.
 
 # How to use
 
-```
+```sh
 npm install -DE github:diniden/parcel-plugin-shader-compression
 ```
 
+## Raw shader string copy
+
 Then in your package.json set a property titled "shader":
 
-```
-"shader": [
-  "<your file extension>",
-  "<your file extension>",
-  fs, vs, doc, etc
-]
+```json
+"shader": {
+  "ext": [
+    "<your file extension>",
+    "<your file extension>",
+    "fs", "vs", "doc", "etc"
+  ]
+}
 ```
 
 Now in your project:
 
-```
+```javascript
 const hey = require("../foo.fs");
 console.log(hey); // Contents of foo.fs
 ```
 
-There is no additional configuration considerations for this project (separate config files, webpack configs, etc etc).
+## Compressed shader string copy
+
+To compress shader assets you configured to be copied over:
+
+```javascript
+process.env.NODE_ENV = 'production';
+```
+
+OR
+
+```json
+"shader": {
+  "compress": true,
+  "ext": [
+    "<your file extension>",
+    "<your file extension>",
+    "fs", "vs", "doc", "etc"
+  ]
+}
+```
+
+There are no additional configuration considerations for this project (separate config files, webpack configs, etc etc).
 I am very intentionally keeping it in package.json as I believe in the movement of clearing out configurations from root
 project folders.
+
+## Configuration properties
+
+- ext {string[]} A list of file extensions you want loaded as raw shader strings.
+- compress {boolean} Set to true to FORCE the compression to happen regardless if the NODE_ENV is in production  or not.
