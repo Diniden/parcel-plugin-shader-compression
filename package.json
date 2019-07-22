@@ -1,0 +1,24 @@
+{
+  "name": "parcel-plugin-shader-compression",
+  "version": "0.0.2",
+  "description": "Plugin to copy shader resources to the bundle as raw text and compress when needed.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diniden/parcel-plugin-simple-string.git"
+  },
+  "author": "Diniden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diniden/parcel-plugin-simple-string/issues"
+  },
+  "homepage": "https://github.com/Diniden/parcel-plugin-simple-string#readme",
+  "dependencies": {
+    "app-root-path": "^2.2.1"
+  },
+  "shader": {
+    "compress": true,
+    "ext": ["fs", "vs"]
+  }
+}
