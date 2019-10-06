@@ -9,8 +9,8 @@ module.exports = function (bundler) {
       process.env.SHADER_FORCE_COMPRESS = true;
     }
 
-    if (Array.isArray(package.shader.fileExt)) {
-      package.shader.forEach(fileType => {
+    if (Array.isArray(package.shader.ext)) {
+      package.shader.ext.forEach(fileType => {
         bundler.addAssetType(fileType, require.resolve('./ShaderStringAsset.js'));
       });
     }
